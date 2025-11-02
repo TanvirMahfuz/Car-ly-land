@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd
+              http://jasperreports.sourceforge.net/jasperreports/components
+              http://jasperreports.sourceforge.net/xsd/components.xsd"
+              name="car_report" pageWidth="595" pageHeight="842" columnWidth="555"
+              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+
+    <!-- Main dataset fields -->
+    <field name="ownerFirstName" class="java.lang.String"/>
+    <field name="cars" class="java.util.List"/>
+
+    <!-- Title -->
+    <title>
+        <band height="50">
+            <staticText>
+                <reportElement x="0" y="10" width="555" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Car Report]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- Detail band -->
+    <detail>
+        <band height="200">
+
+            <!-- Owner Name -->
+            <textField>
+                <reportElement x="0" y="0" width="555" height="20"/>
+                <textFieldExpression><![CDATA["Owner: " + $F{ownerFirstName}]]></textFieldExpression>
+            </textField>
+
+            <!-- Table component for cars -->
+            <componentElement>
+                <reportElement x="0" y="25" width="555" height="150"/>
+
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+                          xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components
+                          http://jasperreports.sourceforge.net/xsd/components.xsd">
+
+
+
+                    <!-- Bind subDataset to cars list -->
+                    <datasetRun subDataset="CarsDataset">
+                        <dataSourceExpression><![CDATA[
+                            new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cars})
+                        ]]></dataSourceExpression>
+                    </datasetRun>
+
+                    <!-- Table columns -->
+                    <jr:column width="100">
+                        <jr:columnHeader height="20">
+                            <staticText><text><![CDATA[Maker]]></text></staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="20">
+                            <textField><textFieldExpression><![CDATA[$F{maker}]]></textFieldExpression></textField>
+                        </jr:detailCell>
+                    </jr:column>
+
+                    <jr:column width="100">
+                        <jr:columnHeader height="20">
+                            <staticText><text><![CDATA[Model]]></text></staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="20">
+                            <textField><textFieldExpression><![CDATA[$F{model}]]></textFieldExpression></textField>
+                        </jr:detailCell>
+                    </jr:column>
+
+                    <jr:column width="50">
+                        <jr:columnHeader height="20">
+                            <staticText><text><![CDATA[Year]]></text></staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="20">
+                            <textField><textFieldExpression><![CDATA[$F{year}]]></textFieldExpression></textField>
+                        </jr:detailCell>
+                    </jr:column>
+
+                    <jr:column width="80">
+                        <jr:columnHeader height="20">
+                            <staticText><text><![CDATA[Color]]></text></staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="20">
+                            <textField><textFieldExpression><![CDATA[$F{color}]]></textFieldExpression></textField>
+                        </jr:detailCell>
+                    </jr:column>
+
+                    <jr:column width="100">
+                        <jr:columnHeader height="20">
+                            <staticText><text><![CDATA[Engine]]></text></staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="20">
+                            <textField><textFieldExpression><![CDATA[$F{engineType}]]></textFieldExpression></textField>
+                        </jr:detailCell>
+                    </jr:column>
+
+                </jr:table>
+            </componentElement>
+
+        </band>
+    </detail>
+
+</jasperReport>
