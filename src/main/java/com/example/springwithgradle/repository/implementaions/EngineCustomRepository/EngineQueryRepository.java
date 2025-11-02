@@ -22,11 +22,11 @@ class EngineQueryRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public EngineDTO findById(Long id) {
+    public Engine findById(Long id) {
         Engine engine = entityManager.createQuery("SELECT e FROM Engine e WHERE e.id = :id", Engine.class)
                     .setParameter("id", id)
                     .getSingleResult();
-        return new  EngineDTO(engine);
+        return engine;
     }
 
     public List<EngineDTO> findBySearchParams(EngineSearchParams params) {

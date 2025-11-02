@@ -14,8 +14,12 @@ public class CarPersistenceRepository {
     private EntityManager entityManager;
 
     public Car save(Car car) {
-        entityManager.persist(car);
-        return car;
+        try{
+            entityManager.persist(car);
+            return car;
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     public Car update(Car car) {

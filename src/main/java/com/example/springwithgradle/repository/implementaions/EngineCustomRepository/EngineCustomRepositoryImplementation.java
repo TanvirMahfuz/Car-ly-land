@@ -5,23 +5,33 @@ import com.example.springwithgradle.entity.Engine;
 import com.example.springwithgradle.dto.EngineDTO;
 import com.example.springwithgradle.repository.interfaces.EngineCustomRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-@AllArgsConstructor
 public class EngineCustomRepositoryImplementation implements EngineCustomRepository {
 
     private final EnginePersistenceRepository enginePersistenceRepository;
     private final EngineDeletionRepository engineDeletionRepository;
     private final EngineQueryRepository engineQueryRepository;
 
+    @Autowired
+    public EngineCustomRepositoryImplementation(
+            EnginePersistenceRepository enginePersistenceRepository,
+            EngineDeletionRepository engineDeletionRepository,
+            EngineQueryRepository engineQueryRepository) {
+        this.enginePersistenceRepository = enginePersistenceRepository;
+        this.engineDeletionRepository = engineDeletionRepository;
+        this.engineQueryRepository = engineQueryRepository;
+    }
+
     @Override
-    public EngineDTO saveOneEngine(Engine engine){
+    public Engine saveOneEngine(Engine engine){
         Engine savedEngine = enginePersistenceRepository.save(engine);
         if(savedEngine == null) return null;
-        return new EngineDTO(savedEngine);
+        return savedEngine;
     }
 
 
@@ -36,7 +46,7 @@ public class EngineCustomRepositoryImplementation implements EngineCustomReposit
     }
 
     @Override
-    public EngineDTO findById(Long id){
+    public Engine findEngineById(Long id){
         return engineQueryRepository.findById(id);
     }
     @Override

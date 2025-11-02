@@ -17,7 +17,5 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Car> cars; // List of cars owned by the user
+    private List<Integer> cars;
 }

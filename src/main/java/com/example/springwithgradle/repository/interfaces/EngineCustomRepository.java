@@ -7,9 +7,9 @@ import com.example.springwithgradle.dto.EngineDTO;
 import java.util.List;
 
 public interface EngineCustomRepository {
-    EngineDTO saveOneEngine(Engine engine);
+    Engine saveOneEngine(Engine engine);
     Engine updateOneEngine(Engine engine);
     void deleteOneEngine(Long id);
-    EngineDTO findById(Long id);
+    Engine findEngineById(Long id);
     List<EngineDTO> findBySearchParams(EngineSearchParams params);
 }

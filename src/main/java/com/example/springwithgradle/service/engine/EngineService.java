@@ -7,7 +7,6 @@ import com.example.springwithgradle.repository.interfaces.EngineCustomRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,12 +16,14 @@ public class EngineService {
     private EngineCustomRepository engineCustomRepository;
 
     public EngineDTO createNewEngine(Engine engine){
-        return engineCustomRepository.saveOneEngine(engine);
+        Engine newEngine = engineCustomRepository.saveOneEngine(engine);
+        return new EngineDTO(newEngine);
     }
 
 
     public EngineDTO getOneEngine(Long id){
-        return engineCustomRepository.findById(id);
+        Engine engine = engineCustomRepository.findEngineById(id);
+        return new EngineDTO(engine);
     }
 
     public List<EngineDTO> getEnginesByParams(EngineSearchParams params){

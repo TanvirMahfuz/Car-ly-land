@@ -14,8 +14,12 @@ class EnginePersistenceRepository {
     private EntityManager entityManager;
 
     public Engine save(Engine engine) {
-        entityManager.persist(engine);
-        return engine;
+        try{
+            entityManager.persist(engine);
+            return engine;
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     public Engine update(Engine engine) {

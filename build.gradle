@@ -26,9 +26,17 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
-    // ✅ Lombok (compile-time only)
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'net.sf.jasperreports:jasperreports:6.21.5'
+    implementation 'net.sf.jasperreports:jasperreports-fonts:6.21.5'
+    implementation 'net.sf.jasperreports:jasperreports-functions:6.21.5'
+
+    implementation 'com.lowagie:itext:2.1.7'
+    implementation 'org.apache.poi:poi:5.2.5'
+    implementation 'org.apache.poi:poi-ooxml:5.2.5'
+
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

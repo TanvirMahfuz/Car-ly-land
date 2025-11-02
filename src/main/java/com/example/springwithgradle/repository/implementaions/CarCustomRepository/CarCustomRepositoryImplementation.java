@@ -4,6 +4,7 @@ import com.example.springwithgradle.entity.Car;
 import com.example.springwithgradle.dto.CarDTO;
 import com.example.springwithgradle.repository.interfaces.CarCustomRepository;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
@@ -15,28 +16,38 @@ public class CarCustomRepositoryImplementation implements CarCustomRepository {
     private final CarPersistenceRepository carPersistenceRepository;
     private final CarQueryRepository carQueryRepository;
 
-    public CarCustomRepositoryImplementation(){
-        this.carDeletionRepository = new CarDeletionRepository();
-        this.carPersistenceRepository = new CarPersistenceRepository();
-        this.carQueryRepository = new CarQueryRepository();
+    @Autowired
+    public CarCustomRepositoryImplementation(
+            CarDeletionRepository carDeletionRepository,
+            CarPersistenceRepository carPersistenceRepository,
+            CarQueryRepository carQueryRepository
+    ) {
+        this.carDeletionRepository = carDeletionRepository;
+        this.carPersistenceRepository = carPersistenceRepository;
+        this.carQueryRepository = carQueryRepository;
     }
 
+    @Override
+    public  Car saveOneCar(Car car){
+        Car savedCar = carPersistenceRepository.save(car);
+        if(car==null){
+            return null;
+        }
+        return savedCar;
+    }
 
     @Override
     public  Car updateOneCar(Car car){
         return carPersistenceRepository.update(car);
     }
-    @Override
-    public  Car saveOneCar(Car car){
-        return carPersistenceRepository.save(car);
-    }
+
     @Override
     public void deleteOneCar(Long id){
         carDeletionRepository.deleteById(id);
     }
 
     @Override
-    public CarDTO findById(Long id){
+    public Car findCarById(Long id){
         return carQueryRepository.findById(id);
     }
 

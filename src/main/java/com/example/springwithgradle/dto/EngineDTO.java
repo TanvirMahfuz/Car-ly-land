@@ -28,7 +28,6 @@ public class EngineDTO {
             this.fuelEfficiency = e.getFuelEfficiency();
             this.turbocharged = e.isTurbocharged();
         }
-
     }
 
 }

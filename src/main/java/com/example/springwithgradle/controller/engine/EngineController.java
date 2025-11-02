@@ -18,7 +18,6 @@ public class EngineController {
 
     @PostMapping("/create-engine")
     public EngineDTO createNewEngine(@RequestBody Engine engine){
-        System.out.println(engine);
         EngineDTO newEngine = engineService.createNewEngine(engine);
         return newEngine;
     }
