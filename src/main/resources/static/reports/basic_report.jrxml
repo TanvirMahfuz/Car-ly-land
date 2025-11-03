@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.21.5.final using JasperReports Library version 6.21.5-74d586df47b25dbd05bd0957999819196e59934a  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
-              name="car_report" pageWidth="595" pageHeight="842" columnWidth="555"
-              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3e0e6960-c3a4-4585-9971-e85308c35cec">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="car_report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3e0e6960-c3a4-4585-9971-e85308c35cec">
     <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-
     <style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
         <box>
             <pen lineWidth="0.5" lineColor="#000000"/>
@@ -16,7 +11,6 @@
             <rightPen lineWidth="0.5" lineColor="#000000"/>
         </box>
     </style>
-
     <style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
         <box>
             <pen lineWidth="0.5" lineColor="#000000"/>
@@ -26,7 +20,6 @@
             <rightPen lineWidth="0.5" lineColor="#000000"/>
         </box>
     </style>
-
     <style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
         <box>
             <pen lineWidth="0.5" lineColor="#000000"/>
@@ -36,7 +29,6 @@
             <rightPen lineWidth="0.5" lineColor="#000000"/>
         </box>
     </style>
-
     <subDataset name="TABLE_DATASET" uuid="c3e87dd9-665e-41e3-bf10-8635a7416e31">
         <parameter name="TABLE_DATASET" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
         <field name="owner" class="java.lang.String"/>
@@ -46,17 +38,14 @@
         <field name="maker" class="java.lang.String"/>
         <field name="model" class="java.lang.String"/>
     </subDataset>
-
     <field name="cars" class="java.util.List"/>
-
     <title>
         <band height="50"/>
     </title>
-
     <detail>
         <band height="272">
             <componentElement>
-                <reportElement x="50" y="30" width="200" height="200" uuid="0f376bbf-e81a-4f2b-b097-693ff276036e">
+                <reportElement x="0" y="30" width="560" height="200" uuid="0f376bbf-e81a-4f2b-b097-693ff276036e">
                     <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
                     <property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
                     <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
@@ -66,82 +55,76 @@
                     <datasetRun subDataset="TABLE_DATASET" uuid="3e68ead6-262b-4912-9b5d-99100e9b3c9c">
                         <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{cars})]]></dataSourceExpression>
                     </datasetRun>
-
-                    <jr:column width="40" uuid="03efd294-be2e-40e2-8a03-f264ba838176">
+                    <jr:column width="112" uuid="03efd294-be2e-40e2-8a03-f264ba838176">
                         <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
                             <staticText>
-                                <reportElement x="0" y="0" width="40" height="30" uuid="050b5ff8-5449-4249-b7d6-be5eb24b6aef"/>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="050b5ff8-5449-4249-b7d6-be5eb24b6aef"/>
                                 <text><![CDATA[User Name]]></text>
                             </staticText>
                         </jr:columnHeader>
                         <jr:detailCell style="Table_TD" height="30">
-                            <textField >
-                                <reportElement x="0" y="0" width="40" height="30" uuid="8816ee11-0472-4c29-ab1a-da4f911d536f" isPrintRepeatedValues="false"/>
+                            <textField>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="8816ee11-0472-4c29-ab1a-da4f911d536f"/>
                                 <textFieldExpression><![CDATA[$F{owner}]]></textFieldExpression>
                             </textField>
                         </jr:detailCell>
                     </jr:column>
-
-                    <jr:column width="40" uuid="03a45f75-94ee-481f-a6e0-fcbffcd0171e">
+                    <jr:column width="112" uuid="03a45f75-94ee-481f-a6e0-fcbffcd0171e">
                         <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
                             <staticText>
-                                <reportElement x="0" y="0" width="40" height="30" uuid="c72d77a4-a6d6-42eb-b2d1-2a0b2d3f6aac"/>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="c72d77a4-a6d6-42eb-b2d1-2a0b2d3f6aac"/>
                                 <text><![CDATA[car id]]></text>
                             </staticText>
                         </jr:columnHeader>
                         <jr:detailCell style="Table_TD" height="30">
                             <textField>
-                                <reportElement x="0" y="0" width="40" height="30" uuid="8816ee11-0472-4c29-ab1a-da4f911d536f"/>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="8816ee11-0472-4c29-ab1a-da4f911d536f"/>
                                 <textFieldExpression><![CDATA[$F{carId}]]></textFieldExpression>
                             </textField>
                         </jr:detailCell>
                     </jr:column>
-
-                    <jr:column width="40" uuid="5bd72fa7-87bb-4357-8adb-6cd6dd5e4e63">
+                    <jr:column width="112" uuid="5bd72fa7-87bb-4357-8adb-6cd6dd5e4e63">
                         <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
                             <staticText>
-                                <reportElement x="0" y="0" width="40" height="30" uuid="f68f870c-3642-4c2e-9333-5e0539e168ca"/>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="f68f870c-3642-4c2e-9333-5e0539e168ca"/>
                                 <text><![CDATA[car color]]></text>
                             </staticText>
                         </jr:columnHeader>
                         <jr:detailCell style="Table_TD" height="30">
                             <textField>
-                                <reportElement x="0" y="0" width="40" height="30" uuid="c84e991c-cfeb-4182-80ea-6882487ff732"/>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="c84e991c-cfeb-4182-80ea-6882487ff732"/>
                                 <textFieldExpression><![CDATA[$F{color}]]></textFieldExpression>
                             </textField>
                         </jr:detailCell>
                     </jr:column>
-
-                    <jr:column width="40" uuid="36f35f2e-1c4c-4b7b-a31a-3ee9a264073e">
+                    <jr:column width="112" uuid="36f35f2e-1c4c-4b7b-a31a-3ee9a264073e">
                         <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
                             <staticText>
-                                <reportElement x="0" y="0" width="40" height="30" uuid="647b52a0-060a-4e74-a5e5-24912cc5d206"/>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="647b52a0-060a-4e74-a5e5-24912cc5d206"/>
                                 <text><![CDATA[car maker]]></text>
                             </staticText>
                         </jr:columnHeader>
                         <jr:detailCell style="Table_TD" height="30">
                             <textField>
-                                <reportElement x="0" y="0" width="40" height="30" uuid="647b52a0-060a-4e74-a5e5-24912cc5d206"/>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="647b52a0-060a-4e74-a5e5-24912cc5d206"/>
                                 <textFieldExpression><![CDATA[$F{maker}]]></textFieldExpression>
                             </textField>
                         </jr:detailCell>
                     </jr:column>
-
-                    <jr:column width="40" uuid="3e7db852-942e-41e0-8874-a9591ddd03d8">
+                    <jr:column width="112" uuid="3e7db852-942e-41e0-8874-a9591ddd03d8">
                         <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
                             <staticText>
-                                <reportElement x="0" y="0" width="40" height="30" uuid="977371d6-a44d-4c42-a408-d332bb36dcc0"/>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="977371d6-a44d-4c42-a408-d332bb36dcc0"/>
                                 <text><![CDATA[car model]]></text>
                             </staticText>
                         </jr:columnHeader>
                         <jr:detailCell style="Table_TD" height="30">
                             <textField>
-                                <reportElement x="0" y="0" width="40" height="30" uuid="9f229b7c-e497-4a77-95fd-fc3846811d7b"/>
+                                <reportElement x="0" y="0" width="112" height="30" uuid="9f229b7c-e497-4a77-95fd-fc3846811d7b"/>
                                 <textFieldExpression><![CDATA[$F{model}]]></textFieldExpression>
                             </textField>
                         </jr:detailCell>
                     </jr:column>
-
                 </jr:table>
             </componentElement>
         </band>
