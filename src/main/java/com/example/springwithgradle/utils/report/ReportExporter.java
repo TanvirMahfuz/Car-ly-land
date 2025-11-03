@@ -7,5 +7,5 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public interface ReportExporter {
-    void export(JasperPrint jasperPrint, File outputFile) throws JRException, FileNotFoundException;
+    void export(JasperPrint jasperPrint, String outputFileName) throws JRException, FileNotFoundException;
 }

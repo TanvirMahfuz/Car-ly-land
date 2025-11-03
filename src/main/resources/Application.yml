@@ -3,8 +3,8 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:postgresql://localhost:5432/car_db
-    username: Apurbo
+    url: jdbc:postgresql://localhost:5433/car_db
+    username: postgres
     password: postgre
     driver-class-name: org.postgresql.Driver
 
@@ -18,5 +18,3 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 app:
   name: SpringWithGradleApplication
-
-

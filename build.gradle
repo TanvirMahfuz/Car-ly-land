@@ -18,29 +18,34 @@ java {
 repositories {
     mavenCentral()
 }
-
 dependencies {
+    // Spring Boot
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.liquibase:liquibase-core'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'org.postgresql:postgresql'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
+    // Liquibase
+    implementation 'org.liquibase:liquibase-core'
+
+    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
+    // JasperReports
     implementation 'net.sf.jasperreports:jasperreports:6.21.5'
     implementation 'net.sf.jasperreports:jasperreports-fonts:6.21.5'
     implementation 'net.sf.jasperreports:jasperreports-functions:6.21.5'
 
-    implementation 'com.lowagie:itext:2.1.7'
+    // Apache POI for Excel exports
     implementation 'org.apache.poi:poi:5.2.5'
     implementation 'org.apache.poi:poi-ooxml:5.2.5'
 
-
+    // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
+
 
 
 tasks.named('test') {

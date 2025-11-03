@@ -12,13 +12,13 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String maker; // Toyota, Ford
-    private String model; // Corolla, Mustang
-    private int year; // Manufacturing year
+    private String maker;
+    private String model;
+    private int year;
     private String color;
     private double price;
-    private int seats; // Number of seats
-    private String transmission; // Automatic, Manual
+    private int seats;
+    private String transmission;
     private Long engineID;
     private Long ownerID;
 }
