@@ -1,0 +1,33 @@
+            <!-- TextField with borders shown only when Group1_COUNT == 1 -->
+            <textField>
+                <reportElement x="29" y="-30" width="75" height="30" uuid="3fc5b448-43c9-4f80-bd57-059e551a4a70">
+                    <printWhenExpression><![CDATA[$V{Group1_COUNT} == 1]]></printWhenExpression>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="SolaimanLipi"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{zoneNameBangla}]]></textFieldExpression>
+            </textField>
+
+            <!-- TextField without borders shown otherwise -->
+            <textField>
+                <reportElement x="29" y="-30" width="75" height="30" uuid="86288139-f113-4eec-bf25-f883878036c0">
+                    <printWhenExpression><![CDATA[$V{Group1_COUNT} != 1]]></printWhenExpression>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="SolaimanLipi"/>
+                </textElement>
+                <textFieldExpression><![CDATA[""]]></textFieldExpression>
+            </textField>
