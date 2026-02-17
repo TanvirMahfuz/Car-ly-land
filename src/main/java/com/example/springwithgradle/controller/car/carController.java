@@ -15,13 +15,11 @@ public class carController {
 
     @PostMapping("/create-car")
     public CarDTO createNewCar(@RequestBody Car car) {
-        CarDTO newCar = carService.createNewCar(car);
-        return newCar;
+        return carService.createNewCar(car);
     }
 
     @GetMapping("/find/{carID}")
     public CarDTO findCarByID(@PathVariable Long carID) {
-        CarDTO newCar = carService.findCarByID(carID);
-        return newCar;
+        return carService.findCarByID(carID);
     }
 }
