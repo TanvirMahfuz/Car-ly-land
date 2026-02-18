@@ -28,8 +28,10 @@ public class EngineController {
         return engineDTO;
     }
 
-    @GetMapping("/find")
-    public List<EngineDTO> findEngine(@ModelAttribute  EngineSearchParams params){
+    @GetMapping(value = "/find", produces = "application/json")
+    public List<EngineDTO> findEngine(@ModelAttribute EngineSearchParams params){
         return engineService.getEnginesByParams(params);
     }
+
+
 }
